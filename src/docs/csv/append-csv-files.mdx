@@ -1,0 +1,45 @@
+---
+title: How to append CSV files with Python pandas
+description: Learn how to append multiple CSV files to each other using Python Pandas
+---
+
+Suppose you have a set of .csv files that you need to combine into one file, while keeping the header information.
+
+Luckily, using the pandas package in Python, you can do this relatively easily.
+
+In this example, you have two .csv files. `homes.csv` and `homes1.csv`
+
+### homes.csv
+
+| Address         | Price   | Bedrooms |
+| --------------- | ------- | -------- |
+| 123 Main St     | 99,000  | 1        |
+| 4981 Anytown Rd | 199,000 | 4        |
+| 132 Walrus ave  | 299,001 | 2        |
+| 1506 Guido St   | 784,049 | 3        |
+
+### homes1.csv
+
+| Address        | Price   | Bedrooms |
+| -------------- | ------- | -------- |
+| 491 Python St  | 293,923 | 4        |
+| 938 Zeal Rd    | 148,398 | 2        |
+| 247 Fort St    | 299,238 | 3        |
+| 992 Settled St | 823,049 | 4        |
+
+## How to append multiple .csv files with pandas
+
+```python
+import pandas as pd
+
+# Read in your .csv files as dataframes using pd.read_csv()
+df_homes = pd.read_csv("C:/Users/kennethcassel/homes.csv")
+df_homes1 = pd.read_csv("C:/Users/kennethcassel/homes1.csv")
+
+
+# This method combines a list of pandas dataframes into one dataframe
+pd.concat([df_homes, df_homes1])
+
+# pd.concat accepts a list as an argument. If you had another homes.csv file to append you could add it to the list
+# like pd.concat([df_homes, df_homes1, df_homes2])
+```

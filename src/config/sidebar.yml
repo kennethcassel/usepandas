@@ -1,24 +1,17 @@
 # Sidebar navigation
 
-- label: 'Introduction'
+- label: 'What is use pandas?'
   link: '/'
 - label: 'Getting started'
   link: '/getting-started'
-- label: Usage
+- label: Working with CSVs
   items:
-    - label: 'Creating docs'
-      link: '/usage/creating-docs'
-    - label: 'Navigation'
-      link: '/usage/navigation'
-    - label: 'Shadowing'
-      link: '/usage/shadowing'
-- label: More
-  items:
-    - label: FAQ
-      link: /faq
-    - label: Changelog
-      link: /changelog
+    - label: 'Append csv files'
+      link: '/csv/append-csv-files'
+
 - label: Community
   items:
     - label: 'Github'
-      link: https://github.com/rocketseat/gatsby-themes
+      link: https://github.com/kennethcassel/usepandas
+    - label: 'Twitter'
+      link: https://twitter.com/KennethCassel
