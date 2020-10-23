@@ -2,10 +2,16 @@
 
 - label: 'What is Use Pandas?'
   link: '/'
-- label: Working with CSVs
+- label: Working with .csv files
   items:
     - label: 'Append .csv files'
       link: '/csv/append-csv-files'
+    - label: 'Sort .csv data by Column'
+      link: '/csv/sort-csv-data-by-column'
+    - label: 'Replace missing .csv data' 
+      link: '/csv/replace-missing-data'
+    - label: 'Select N rows' 
+      link: '/csv/select-n-rows'
 
 - label: Community
   items:

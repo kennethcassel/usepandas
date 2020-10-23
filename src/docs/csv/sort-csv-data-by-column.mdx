@@ -1,0 +1,64 @@
+---
+title: How to sort data by column in a .csv file with Python pandas
+description: Learn how to sort data in a .csv file using Python Pandas
+---
+
+**Sorting data** by a column value is a very common task for Data analysts
+who use Python pandas.
+
+For this example, let's say you're trying to sort a .csv file that contains
+housing data. 🏠
+In particular, you're wanting to sort from highest to lowest, based on price.
+
+You start with a .csv for this task that looks like this:
+
+### homes.csv
+
+| Address         | Price   | Bedrooms |
+| --------------- | ------- | -------- |
+| 123 Main St     | 99,000  | 1        |
+| 4981 Anytown Rd | 199,000 | 4        |
+| 132 Walrus ave  | 299,001 | 2        |
+| 1506 Guido St   | 784,049 | 3        |
+| 491 Python St   | 293,923 | 4        |
+| 938 Zeal Rd     | 148,398 | 2        |
+| 247 Fort St     | 299,238 | 3        |
+| 992 Settled St  | 823,049 | 4        |
+
+### Sort data in a .csv file with Python pandas
+
+```python
+import pandas as pd
+
+# Read in your .csv files as dataframes
+# df is a common standard for naming a dataframe. You can
+# name them something more descriptive as well.
+# Using a descriptive name is helpful when you are dealing
+# with multiple .csv files.
+df = pd.read_csv("C:/Users/kennethcassel/homes.csv")
+
+# the .sort_values method returns a new dataframe, so make sure to
+# assign this to a new variable.
+sorted_df = df.sort_values(by=["price"], ascending=False)
+
+# Index=False is a flag that tells pandas not to write
+# the index of each row to a new column. If you'd like
+# your rows to be numbered explicitly, leave this as
+# the default, True
+sorted_df.to_csv('homes_sorted.csv', index=False)
+```
+
+### homes_sorted.csv
+
+Here is the resulting csv file from just a few lines of pandas code!
+
+| Address         | Price   | Bedrooms |
+| --------------- | ------- | -------- |
+| 992 Settled St  | 823,049 | 4        |
+| 1506 Guido St   | 784,049 | 3        |
+| 247 Fort St     | 299,238 | 3        |
+| 132 Walrus Ave  | 299,001 | 2        |
+| 491 Python St   | 293,923 | 4        |
+| 4981 Anytown Rd | 199,000 | 4        |
+| 938 Zeal Rd     | 148,398 | 2        |
+| 123 Main St     | 99,000  | 1        |
