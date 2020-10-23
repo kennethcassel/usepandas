@@ -53,6 +53,12 @@ module.exports = {
         timeout: 3500, // number; the amount of time, in milliseconds, that you want to allow mailchimp to respond to your request before timing out. defaults to 3500
       },
     },
+    {
+      resolve: `gatsby-plugin-plausible`,
+      options: {
+        domain: `usepandas.com`,
+      },
+    },
     `gatsby-plugin-offline`,
     "gatsby-plugin-styled-components",
   ],
