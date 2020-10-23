@@ -1,12 +1,10 @@
 # Sidebar navigation
 
-- label: 'What is use pandas?'
+- label: 'What is Use Pandas?'
   link: '/'
-- label: 'Getting started'
-  link: '/getting-started'
 - label: Working with CSVs
   items:
-    - label: 'Append csv files'
+    - label: 'Append .csv files'
       link: '/csv/append-csv-files'
 
 - label: Community
