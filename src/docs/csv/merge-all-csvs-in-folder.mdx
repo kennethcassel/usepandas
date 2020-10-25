@@ -1,0 +1,41 @@
+---
+title: How to Merge All .csv Files In a Folder On Windows
+description: Learn how to use glob with Python pandas to merge all .csv files in a directory
+---
+
+import EmailSignup from "../../MailChimp/EmailSignup";
+
+Imagine you have a lot of .csv files to merge in a Windows folder. It'd take
+a decent amount of time to do this manually. With Python pandas, you can make
+quick work of this task and merge all .csv files using the following recipe.
+
+Special thanks to [fmaume](https://github.com/fmaume) for submitting this
+recipe.
+
+## Merge all .csv files in a folder
+
+```python
+# glob is a library to find pathnames using regex patterns
+import glob
+import pandas as pd
+
+
+# Folder containing the .csv files to merge
+file_path = "G:\\Dropbox\\to merge"
+
+
+# This pattern \\* selects all files in a directory
+pattern = file_path + "\\*"
+files = glob.glob(pattern)
+
+# Import first file to initiate the dataframe
+df = pd.read_csv(files[0],encoding = "utf-8", delimiter = ",")
+
+# Append all the files as dataframes to the first one
+for file in files[1:len(file_list)]:
+    df_csv = pd.read_csv(file,encoding = "utf-8", delimiter = ",")
+    df = df.append(df_csv)
+
+```
+
+<EmailSignup />
