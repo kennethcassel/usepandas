@@ -8,6 +8,8 @@
       link: '/csv/append-csv-files'
     - label: 'Sort .csv data by Column'
       link: '/csv/sort-csv-data-by-column'
+    - label: 'Merge .csv files in folder'
+      link: '/csv/merge-all-csvs-in-folder'
     - label: 'Replace missing .csv data' 
       link: '/csv/replace-missing-data'
     - label: 'Select N rows' 
