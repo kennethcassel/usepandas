@@ -59,7 +59,6 @@ module.exports = {
         domain: `usepandas.com`,
       },
     },
-    `gatsby-plugin-offline`,
     "gatsby-plugin-styled-components",
   ],
 };
