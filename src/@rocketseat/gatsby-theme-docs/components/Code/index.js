@@ -11,7 +11,6 @@ import {
   CopyCode,
   LineNo,
   Pre,
-  MobilePre,
   PreHeader,
   LiveWrapper,
   LivePreview,
