@@ -4,6 +4,8 @@
   link: '/'
 - label: Working with .csv files
   items:
+    - label: 'Import .csv From Clipboard'
+      link: '/csv/import-csv-from-clipboard'
     - label: 'Append .csv files'
       link: '/csv/append-csv-files'
     - label: 'Sort .csv data by Column'
