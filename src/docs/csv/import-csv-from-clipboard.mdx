@@ -1,0 +1,70 @@
+---
+title: How to import a .csv from your clipboard with Python pandas
+description: Learn how to sort data in a .csv file using Python Pandas
+---
+
+import EmailSignup from "../../MailChimp/EmailSignup";
+
+Your colleague sends you a .csv file in slack and wants you to do some quick
+transformations on it.
+
+Good news! You don't have to save these .csv files to your machine, get the file
+path, and load it into a pandas dataframe.
+
+There's an easier way!
+
+It's called `pandas.read_clipboard()`
+
+## How to use pandas read_clipboard()
+
+For this example, your colleague sends you this .csv in slack with housing
+data. He'd like it sorted from largest to small by bedrooms.
+
+### homes_sorted.csv
+
+Here is what the original .csv file looks like
+
+| Address         | Price   | Bedrooms |
+| --------------- | ------- | -------- |
+| 992 Settled St  | 823,049 | 4        |
+| 1506 Guido St   | 784,049 | 3        |
+| 247 Fort St     | 299,238 | 3        |
+| 132 Walrus Ave  | 299,001 | 2        |
+| 491 Python St   | 293,923 | 4        |
+| 4981 Anytown Rd | 199,000 | 4        |
+| 938 Zeal Rd     | 148,398 | 2        |
+| 123 Main St     | 99,000  | 1        |
+
+### Import data using read_clipboard()
+
+Copy .csv to clipboard here: [homes_sorted.csv](https://gist.githubusercontent.com/kennethcassel/a59a5f0e302e9b7452d18c275eb16447/raw/723460a571f8bd4261116936b672c2f015b78ffa/homes_sorted.csv)
+
+```python
+import pandas as pd
+
+# read_clipboard attempts to read whatever is in your
+# clipboard in as a .csv file. It uses read_csv() under
+# the hood.
+df = pd.read_clipboard(delimiter=',')
+
+# sort data by bedrooms
+sorted_df = df.sort_values(by=["bedrooms"])
+
+# export dataframe as .csv file
+sorted_df.to_csv('homes_sorted_by_bedroom.csv', index=False)
+```
+
+### homes_sorted_by_bedroom.csv
+
+| Address         | Price   | Bedrooms |
+| --------------- | ------- | -------- |
+| 992 Settled St  | 823,049 | 4        |
+| 491 Python St   | 293,923 | 4        |
+| 4981 Anytown Rd | 199,000 | 4        |
+| 1506 Guido St   | 784,049 | 3        |
+| 247 Fort St     | 299,238 | 3        |
+| 132 Walrus Ave  | 299,001 | 2        |
+| 938 Zeal Rd     | 148,398 | 2        |
+| 123 Main St     | 99,000  | 1        |
+
+<EmailSignup />
