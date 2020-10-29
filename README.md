@@ -2,7 +2,7 @@
 Use Pandas: Easy to Use Python Pandas Recipes
 </h2>
 
-<p align="center">Using the theme: <a href="https://github.com/Rocketseat/gatsby-themes/tree/master/%40rocketseat/gatsby-theme-docs">@rocketseat/gatsby-theme-docs</a>
+<p align="center">Live Site:  <a href="https://www.usepandas.com">Use Pandas</a>
 </p>
 
 <p align="center">
