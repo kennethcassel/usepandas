@@ -4,6 +4,8 @@
   link: '/'
 - label: Working with .csv files
   items:
+    - label: 'Add Column With Default Value'
+      link: '/csv/add-column-default-value-to-csv'
     - label: 'Import .csv From Clipboard'
       link: '/csv/import-csv-from-clipboard'
     - label: 'Append .csv files'

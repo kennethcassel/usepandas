@@ -1,0 +1,61 @@
+---
+title: How to add column with default value to a .csv using Python pandas
+description: Learn how to add a column with default value to a .csv file using Python Pandas
+---
+
+import EmailSignup from "../../MailChimp/EmailSignup";
+
+Let's look at how simple it can be to add a new column of some default information to a .csv file using
+Python pandas.
+
+Suppose you have this set of data and you want to add a column to specify whether or not
+the home has been inspected by a home inspector. So far, none of the houses have been inspected,
+so we want to set all the column values to false.
+
+We'll need to add a new column called `Inspected` and set the value to 'false' for each one.
+
+## homes_sorted.csv
+
+| Address         | Price   | Bedrooms |
+| --------------- | ------- | -------- |
+| 992 Settled St  | 823,049 | 4        |
+| 1506 Guido St   | 784,049 | 3        |
+| 247 Fort St     | 299,238 | 3        |
+| 132 Walrus Ave  | 299,001 | 2        |
+| 491 Python St   | 293,923 | 4        |
+| 4981 Anytown Rd | 199,000 | 4        |
+| 938 Zeal Rd     | 148,398 | 2        |
+| 123 Main St     | 99,000  | 1        |
+
+## How to add a new column with Python pandas
+
+```python
+import pandas as pd
+
+df_homes = pd.read_csv("C:/Users/kennethcassel/homes_sorted.csv")
+
+# To make a new column with values that are all the same,
+# do the following. Name the column, and assign it to a single
+# default value. This will populate every row with that value.
+df_homes['Inspected'] = 'false'
+
+df_homes.to_csv('homes_inspected.csv, index=False')
+
+```
+
+## Resulting file with new column added
+
+### homes_inspected.csv
+
+| Address         | Price   | Bedrooms | Inspected |
+| --------------- | ------- | -------- | --------- |
+| 992 Settled St  | 823,049 | 4        | false     |
+| 1506 Guido St   | 784,049 | 3        | false     |
+| 247 Fort St     | 299,238 | 3        | false     |
+| 132 Walrus Ave  | 299,001 | 2        | false     |
+| 491 Python St   | 293,923 | 4        | false     |
+| 4981 Anytown Rd | 199,000 | 4        | false     |
+| 938 Zeal Rd     | 148,398 | 2        | false     |
+| 123 Main St     | 99,000  | 1        | false     |
+
+<EmailSignup />
