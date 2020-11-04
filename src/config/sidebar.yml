@@ -2,6 +2,10 @@
 
 - label: 'What is Use Pandas?'
   link: '/'
+- label: Data Analysis
+  items: 
+    - label: 'Measuring Kurtosis'
+      link: '/data-analysis/kurtosis'
 - label: Working with .csv files
   items:
     - label: 'Add Column With Default Value'
