@@ -1,0 +1,48 @@
+---
+title: How to measure Kurtosis in Python pandas
+description: Learn how to use Kurtosis (how light or heavy tailed a distribution is) in Python Pandas
+---
+
+import EmailSignup from "../../MailChimp/EmailSignup";
+
+Kurtosis! It's a neat statistical measure that tells you how different from a normal distribution
+a given set of data is. In particular it measures if data are heavy-tailed or light tailed when
+compared to a normal distribution.
+
+The lower the number is, the less outliers exist in the data. The higher it is, the more outliers exist.
+
+Let's take a look at the kurtosis for the `price` column in the following .csv of housing data.
+
+## homes_sorted.csv
+
+| Address         | Price   | Bedrooms |
+| --------------- | ------- | -------- |
+| 992 Settled St  | 823,049 | 4        |
+| 1506 Guido St   | 784,049 | 3        |
+| 247 Fort St     | 299,238 | 3        |
+| 132 Walrus Ave  | 299,001 | 2        |
+| 491 Python St   | 293,923 | 4        |
+| 4981 Anytown Rd | 199,000 | 4        |
+| 938 Zeal Rd     | 148,398 | 2        |
+| 123 Main St     | 99,000  | 1        |
+
+## How to measure kurtosis with Python pandas
+
+```python
+import pandas as pd
+
+df = pd.read_csv('/Users/kennethcassel/homes_sorted.csv')
+
+df['price'].kurtosis()
+```
+
+## Output: `-0.29610470855022797`
+
+## Conclusion:
+
+It's super easy to analyze data to find kurtosis using python pandas.
+
+Our dataset had a low kurtosis measurement. A normal distribution is 3. Anything below 1 is
+considered a light-tailed set of data. Anything higher than 1 is heavy tailed.
+
+<EmailSignup />
