@@ -8,6 +8,8 @@
       link: '/data-analysis/kurtosis'
 - label: Working with .csv files
   items:
+    - label: 'Read In a .csv using read_csv'
+      link: '/csv/pandas-read-csv'
     - label: 'Add Column With Default Value'
       link: '/csv/add-column-default-value-to-csv'
     - label: 'Import .csv From Clipboard'
