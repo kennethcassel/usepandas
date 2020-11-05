@@ -1,0 +1,75 @@
+---
+title: How to use pandas read_csv
+description: Learn how to read a .csv into Python pandas using the read_csv function
+image: /pandas-read-csv.png
+---
+
+import EmailSignup from "../../MailChimp/EmailSignup";
+
+If you're looking to perform analysis on .csv data with pandas, you will first have to get the information
+into pandas. The most common way of getting .csv data into a pandas dataframe is by using the pandas `read_csv()` function.
+
+Let's look at some data that we'd like to pass into pandas. We have the following .csv `homes_sorted.csv` and we'd
+like to do some analysis on it.
+
+### homes_sorted.csv
+
+Here is what the original .csv file looks like
+
+| Address         | Price   | Bedrooms |
+| --------------- | ------- | -------- |
+| 992 Settled St  | 823,049 | 4        |
+| 1506 Guido St   | 784,049 | 3        |
+| 247 Fort St     | 299,238 | 3        |
+| 132 Walrus Ave  | 299,001 | 2        |
+| 491 Python St   | 293,923 | 4        |
+| 4981 Anytown Rd | 199,000 | 4        |
+| 938 Zeal Rd     | 148,398 | 2        |
+| 123 Main St     | 99,000  | 1        |
+
+## So how exactly can we read in this .csv?
+
+### Read .csv using pandas read_csv
+
+Copy .csv to clipboard here: [homes_sorted.csv](https://gist.githubusercontent.com/kennethcassel/a59a5f0e302e9b7452d18c275eb16447/raw/723460a571f8bd4261116936b672c2f015b78ffa/homes_sorted.csv)
+
+```python
+# This is a convention. Most people import pandas as pd.
+import pandas as pd
+
+# You can pass a filepath or a file-like object into the read_csv function.
+# Here, we are passing in a filepath. the read_csv function returns a DataFrame
+df = pd.read_csv('/Users/kennethcassel/homes_sorted.csv')
+
+# Our csv has been loaded into a DataFrame called df. We can perform all types of
+# useful operations on it. For now, we will just return the entire dataframe
+
+df
+```
+
+### df
+
+Wait a minute. Our data has been changed. Scroll back up to the .csv we passed in and see if
+you notice the difference.
+
+|     | Address         | Price   | Bedrooms |
+| --- | --------------- | ------- | -------- |
+| 0   | 992 Settled St  | 823,049 | 4        |
+| 1   | 1506 Guido St   | 784,049 | 3        |
+| 2   | 247 Fort St     | 299,238 | 3        |
+| 3   | 132 Walrus Ave  | 299,001 | 2        |
+| 4   | 491 Python St   | 293,923 | 4        |
+| 5   | 4981 Anytown Rd | 199,000 | 4        |
+| 6   | 938 Zeal Rd     | 148,398 | 2        |
+| 7   | 123 Main St     | 99,000  | 1        |
+
+### Why did pandas add a new number column to our data?
+
+Pandas DataFrames and Series always have an index. This is a number that displays next to the columns.
+
+When you export your .csv you can pass in the flag `Index=False` to prevent this index from showing up in
+your data.
+
+Take a look at some of our other .csv file pandas recipes to learn more!
+
+<EmailSignup />
