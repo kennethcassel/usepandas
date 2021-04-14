@@ -3,21 +3,91 @@ title: Replace Missing Data using Pandas
 description: Learn how to replace missing data in a .csv file using Python Pandas
 ---
 
-<br />
-<br />
-
-## Coming soon!
-
-<br />
-<br />
-<br />
-
-### In the mean time:
-
-> If you'd like to contribute to the project, feel free to submit
-> a PR for this section!
-> You can submit a PR [here](https://github.com/kennethcassel/usepandas)
-
 import EmailSignup from "../../MailChimp/EmailSignup";
+
+When working with real-world data sometimes you'll find that the data have missing values.
+This can happen for a lot of reasons: Errors in the ETL, the user did not provide that information,
+a new field was introduce to the database and old rows have no values, etc.
+
+Suppose you have this dataset and you want to replace all the NaN values in the Bedrooms column with non-NaN values.
+
+## homes_sorted.csv
+
+| Address         | Price   | Bedrooms |
+| --------------- | ------- | -------- |
+| 992 Settled St  | 823,049 | 4.0      |
+| 1506 Guido St   | 784,049 | 3.0      |
+| 247 Fort St     | 299,238 | NaN      |
+| 132 Walrus Ave  | 299,001 | 2.0      |
+| 491 Python St   | 293,923 | NaN      |
+| 4981 Anytown Rd | 199,000 | 4.0      |
+| 938 Zeal Rd     | 148,398 | NaN      |
+| 123 Main St     | 99,000  | 1.0      |
+
+Let's try the simplest method first.
+
+## Method 1: Replace NaN with constant value
+
+```python
+import pandas as pd
+
+df_homes = pd.read_csv("C:/Users/kennethcassel/homes_sorted.csv")
+
+# To fill NaN values from a column use pandas fillna() function
+# and pass it the value with which you want to replace the missing values
+df_homes['Bedrooms'] = df_homes['Bedrooms'].fillna(1)
+
+df_homes.to_csv('homes_imputed.csv', index=False)
+
+```
+
+After that, your dataset should look like this:
+
+## homes_imputed.csv
+
+| Address         | Price   | Bedrooms |
+| --------------- | ------- | -------- |
+| 992 Settled St  | 823,049 | 4.0      |
+| 1506 Guido St   | 784,049 | 3.0      |
+| 247 Fort St     | 299,238 | 1.0      |
+| 132 Walrus Ave  | 299,001 | 2.0      |
+| 491 Python St   | 293,923 | 1.0      |
+| 4981 Anytown Rd | 199,000 | 4.0      |
+| 938 Zeal Rd     | 148,398 | 1.0      |
+| 123 Main St     | 99,000  | 1.0      |
+
+## Method 2: Replace NaN with most common value
+
+```python
+import pandas as pd
+
+df_homes = pd.read_csv("C:/Users/kennethcassel/homes_sorted.csv")
+
+# Instead of filling missing values with a random number
+# we fill them with the most common value.
+# The [0] after function mode() is necessary because mode()
+# returns a dataset insted of an int/float
+df_homes['Bedrooms'] = df_homes['Bedrooms'].fillna(
+                                                df_home['Bedrooms'].mode()[0]
+                                            )
+
+df_homes.to_csv('homes_imputed.csv', index=False)
+
+df = pd.DataFrame()
+
+```
+
+After that, all NaN values should be replaced with 4.0
+
+| Address         | Price   | Bedrooms |
+| --------------- | ------- | -------- |
+| 992 Settled St  | 823,049 | 4.0      |
+| 1506 Guido St   | 784,049 | 3.0      |
+| 247 Fort St     | 299,238 | 4.0      |
+| 132 Walrus Ave  | 299,001 | 2.0      |
+| 491 Python St   | 293,923 | 4.0      |
+| 4981 Anytown Rd | 199,000 | 4.0      |
+| 938 Zeal Rd     | 148,398 | 4.0      |
+| 123 Main St     | 99,000  | 1.0      |
 
 <EmailSignup />
